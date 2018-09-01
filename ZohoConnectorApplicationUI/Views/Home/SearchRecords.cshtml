@@ -1,0 +1,87 @@
+﻿@model Connector.Data.Model.ApiStructure.Record;
+
+@{
+    ViewData["Title"] = "SearchRecords";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var searchedList = TempData["SerchResult"] as List<Connector.Data.Model.ApiStructure.Record>;
+    var serchedcriterias = TempData["criteria"];
+}
+<div class="row">
+    @if (Model == null)
+    {
+        <div class="container">
+            <div class="col-md-12" style="margin-top:100px;">
+                <form asp-controller="Home" asp-action="SearchRecord" method="post">
+                    <div class="form-group">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LeadOwner"></label>
+                        <input asp-for="LeadOwner" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Verileri Çek</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    }
+
+
+    @if (searchedList != null)
+    {
+        <div class="col-md-12" style="margin-top:100px;">
+            <div class="col-md-12">
+                <span> @serchedcriterias </span> süzgecine tutulmuş veriler aşağıdaki gibidir.
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Lead Owner</th>
+                            <th>Owner</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Destination</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Fax</th>
+                            <th>Mobile</th>
+                            <th>Web Site</th>
+                            <th>Lead Source</th>
+                            <th>Lead Status</th>
+                            <th>Created By</th>
+                            <th>Created Time</th>
+                            <th>Modified Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in searchedList)
+                        {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.LeadOwner</td>
+                            <td>@item.Phone</td>
+                            <td></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+
+
+
+
+
+</div>

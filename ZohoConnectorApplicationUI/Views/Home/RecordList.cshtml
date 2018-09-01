@@ -1,0 +1,119 @@
+﻿@model Connector.Data.Model.ApiParameters;
+@{
+    ViewData["Title"] = "RecordList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var SortingFilter = TempData["SortingFilter"] as List<SelectListItem>;
+    var recordlist = TempData["recordList"] as List<Connector.Data.Model.ApiStructure.Record>;
+    var result = TempData["result"];
+}
+<div class="row" style="margin-top:20px;">
+
+    @if (result != null)
+    {
+        @if (Convert.ToInt32(result) == 1)
+        {
+            <h1 style="color:aquamarine;">işlem başarılı.</h1>
+        }
+        else
+        {
+            <h1 style="color:darkred;">işlem başarısız.</h1>
+        }
+    }
+
+    @using (Html.BeginForm("RecordList", "Home", FormMethod.Post))
+    {
+        <div class="col-md-12" style="margin-top:100px">
+            <label>Belirtilen sıradaki kayıttan     @Html.TextBoxFor(model => model.fromIndex, new { @class = "form-control" }) </label>
+            <label>Belirtilen sıradaki kayıta kadar    @Html.TextBoxFor(model => model.toIndex, new { @class = "form-control" }) </label>
+
+            @*<input asp-for="toIndex" class="form-control" />*@
+
+            @*<label>Belirtilen tarihten sonraki kayıtları     @Html.EditorFor(a => a.lastModifiedTime, new { @class = "form-control" })</label>*@
+            <select asp-items="SortingFilter" asp-for="sortOrderString" class="form-control"></select>
+
+
+
+            <button type="submit">
+                Kayıtları Getir
+            </button>
+        </div>
+
+    }
+
+    @if (recordlist != null)
+    {
+        <div class="col-md-12" style="margin-top:100px;">
+            <ul>
+                @foreach (var item in recordlist)
+                {
+
+
+
+                    <li>
+                        <label>Lead Owner</label>
+                        @item.LeadOwner
+
+                    </li>
+                    <li>
+                        <label>Owner</label>
+                        @item.Owner
+                    </li>
+                    <li>
+                        <label>First Name</label>
+                        @item.FirstName
+                    </li>
+
+                    <li> <label>Destination</label>@item.Destination </li>
+                    <li>
+                        <label>Email</label>
+                        @item.Email
+                    </li>
+                    <li>
+                        <label>Phone</label>
+                        @item.Phone
+                    </li>
+                    <li>
+                        <label>Fax</label>
+                        @item.Fax
+                    </li>
+                    <li>
+                        <label>Mobile</label>
+                        @item.Mobile
+                    </li>
+                    <li>
+                        <label>WebSite</label>
+                        @item.WebSite
+                    </li>
+                    <li>
+                        <label>Lead Source </label>
+                        @item.LeadSource
+                    </li>
+                    <li>
+                        <label> Lead Status</label>
+                        @item.LeadStatus
+                    </li>
+                    <li>
+                        <label>CreatedBy</label>
+                        @item.CreatedBy
+
+                    </li>
+                    <li>
+                        <label>CreatedTime</label>
+                        @item.CreatedTime
+                    </li>
+                    <li><label>ModifiedTime</label> @item.ModifiedTime </li>
+
+                    <li>
+                        <a class="btn btn-danger" href="@Url.Action("deleteRecord","Home" ,new { id=item.Id})">sil</a>
+                        <a class="btn btn-default" href="@Url.Action("UpdateRecord","Home",new { id=item.Id})">düzenle</a>
+                    </li>
+
+
+                }
+            </ul>
+        </div>
+
+
+    }
+</div>
+

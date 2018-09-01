@@ -1,0 +1,8 @@
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\bin\Debug\netcoreapp2.1\Connector.Data.deps.json
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\bin\Debug\netcoreapp2.1\Connector.Data.dll
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\bin\Debug\netcoreapp2.1\Connector.Data.pdb
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\obj\Debug\netcoreapp2.1\Connector.Data.csproj.CoreCompileInputs.cache
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\obj\Debug\netcoreapp2.1\Connector.Data.AssemblyInfoInputs.cache
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\obj\Debug\netcoreapp2.1\Connector.Data.AssemblyInfo.cs
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\obj\Debug\netcoreapp2.1\Connector.Data.dll
+C:\Users\Matopc\source\repos\ZohoConnector\Connector.Data\obj\Debug\netcoreapp2.1\Connector.Data.pdb

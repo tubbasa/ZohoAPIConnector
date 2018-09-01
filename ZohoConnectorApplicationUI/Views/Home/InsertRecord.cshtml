@@ -1,0 +1,104 @@
+﻿@model Connector.Data.Model.ApiStructure.Record
+
+@{
+    ViewData["Title"] = "InsertRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int succed = ViewBag.succed;
+}
+
+
+
+<div class="row" style="margin-top:50px;">
+
+
+    @if (Convert.ToInt32(succed) != 0)
+    {
+        <h1 style="color:aquamarine;">@succed kayıt eklendi. </h1>
+    }
+    <h2>InsertRecord</h2>
+
+    <h4>Record</h4>
+    <hr />
+
+
+
+
+
+
+    @if (Model != null)
+    {
+        if (Model.Id == 1)
+        {
+            <h1 style="color:aquamarine;">Kayıt eklendi. </h1>
+
+        }
+
+    }
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="InsertRecord">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LeadOwner" class="control-label"></label>
+                    <input asp-for="LeadOwner" class="form-control" />
+                    <span asp-validation-for="LeadOwner" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Owner" class="control-label"></label>
+                    <input asp-for="Owner" class="form-control" />
+                    <span asp-validation-for="Owner" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Destination" class="control-label"></label>
+                    <input asp-for="Destination" class="form-control" />
+                    <span asp-validation-for="Destination" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fax" class="control-label"></label>
+                    <input asp-for="Fax" class="form-control" />
+                    <span asp-validation-for="Fax" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mobile" class="control-label"></label>
+                    <input asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Company" class="control-label"></label>
+                    <input asp-for="Company" class="form-control" />
+                    <span asp-validation-for="Company" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+</div>
